@@ -86,8 +86,22 @@
       "name": "exchange",
       "doc": "List of major stock exchanges.",
       "type": {
-        "type": "map",
-        "values": "string",
+        "type": "record",
+        "name": "exchange",
+        "fields": [
+          {
+            "name": "symbol",
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "currency",
+            "type": "string"
+          }
+        ],
         "arg.properties": {
           "options": [
             {
@@ -125,123 +139,132 @@
       }
     },
     {
-      "name": "EUR_USD_rate",
+      "name": "exchange_rates",
       "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 1.13,
-            "max": 1.17
+        "type": "record",
+        "name": "exchange_rate",
+        "fields": [
+          {
+            "name": "EUR_USD",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 1.13,
+                  "max": 1.17
+                }
+              }
+            }
+          },
+          {
+            "name": "EUR_GBP",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 0.75,
+                  "max": 0.85
+                }
+              }
+            }
+          },
+          {
+            "name": "EUR_JPY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 180.00,
+                  "max": 200.00
+                }
+              }
+            }
+          },
+          {
+            "name": "EUR_CNY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 7.50,
+                  "max": 9.00
+                }
+              }
+            }
+          },
+          {
+            "name": "USD_GBP",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 0.76,
+                  "max": 0.86
+                }
+              }
+            }
+          },
+          {
+            "name": "USD_JPY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 166.00,
+                  "max": 175.00
+                }
+              }
+            }
+          },
+          {
+            "name": "USD_CNY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 6.66,
+                  "max": 7.28
+                }
+              }
+            }
+          },
+          {
+            "name": "GBP_JPY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 196.00,
+                  "max": 210.00
+                }
+              }
+            }
+          },
+          {
+            "name": "GBP_CNY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 9.36,
+                  "max": 9.98
+                }
+              }
+            }
+          },
+          {
+            "name": "JPY_CNY",
+            "type": {
+              "type": "double",
+              "arg.properties": {
+                "range": {
+                  "min": 0.03,
+                  "max": 0.056
+                }
+              }
+            }
           }
-        }
-      }
-    },
-    {
-      "name": "EUR_GBP_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 0.75,
-            "max": 0.85
-          }
-        }
-      }
-    },
-    {
-      "name": "EUR_JPY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 180.00,
-            "max": 200.00
-          }
-        }
-      }
-    },
-    {
-      "name": "EUR_CNY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 7.50,
-            "max": 9.00
-          }
-        }
-      }
-    },
-    {
-      "name": "USD_GBP_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 0.76,
-            "max": 0.86
-          }
-        }
-      }
-    },
-    {
-      "name": "USD_JPY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 166.00,
-            "max": 175.00
-          }
-        }
-      }
-    },
-    {
-      "name": "USD_CNY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 6.66,
-            "max": 7.28
-          }
-        }
-      }
-    },
-    {
-      "name": "GBP_JPY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 196.00,
-            "max": 210.00
-          }
-        }
-      }
-    },
-    {
-      "name": "GBP_CNY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 9.36,
-            "max": 9.98
-          }
-        }
-      }
-    },
-    {
-      "name": "JPY_CNY_rate",
-      "type": {
-        "type": "double",
-        "arg.properties": {
-          "range": {
-            "min": 0.03,
-            "max": 0.056
-          }
-        }
+        ]
       }
     }
   ]
