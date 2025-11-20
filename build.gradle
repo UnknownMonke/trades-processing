@@ -1,0 +1,77 @@
+plugins {
+    id 'java'
+}
+
+// Sets Java version.
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+group = 'org.monke.transactions'
+version = '1.0.0-SNAPSHOT'
+
+// Update Gradle wrapper version : ./gradlew wrapper.
+wrapper {
+    gradleVersion = '9.2'
+}
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    mockitoAgent {
+        transitive = false
+    }
+}
+
+// ------- Versions ------- //
+
+def kafkaVersion = '4.1.0'
+def jacksonVersion = '2.20.0'
+def slf4jVersion = '2.0.17'
+def log4j2Version = '2.25.2'
+def lombokVersion = '1.18.40'
+def junitVersion = '5.13.4'
+def assertjVersion = '3.27.4'
+def mockitoVersion = '5.19.0'
+
+// ------------------------ //
+
+dependencies {
+    // --------- Kafka --------- //
+    implementation "org.apache.kafka:kafka-streams:$kafkaVersion"
+
+    // --------- JSON ---------- //
+    implementation "org.json:json:20250517"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:$jacksonVersion"
+
+    // --------- Slf4j --------- //
+    implementation "org.slf4j:slf4j-api:$slf4jVersion"
+    implementation "org.apache.logging.log4j:log4j-slf4j2-impl:$log4j2Version"
+
+    // -------- Lombok --------- //
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
+    testAnnotationProcessor "org.projectlombok:lombok:$lombokVersion"
+
+    // ------- Unit tests ------ //
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testRuntimeOnly "org.junit.platform:junit-platform-launcher"
+
+    testImplementation "org.assertj:assertj-core:$assertjVersion"
+
+    testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+    mockitoAgent "org.mockito:mockito-core:$mockitoVersion"
+}
+
+test {
+    useJUnitPlatform()
+    jvmArgs "-javaagent:${configurations.mockitoAgent.asPath}"
+}
