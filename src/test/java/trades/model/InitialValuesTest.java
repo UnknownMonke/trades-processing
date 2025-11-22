@@ -1,8 +1,8 @@
-package model;
+package trades.model;
 
 import org.junit.jupiter.api.Test;
-import org.monke.streams.transactions.model.InitialValues;
-import org.monke.streams.transactions.model.ShareValue;
+import org.monke.streams.trades.model.InitialValues;
+import org.monke.streams.trades.model.ShareValue;
 
 import java.util.Map;
 

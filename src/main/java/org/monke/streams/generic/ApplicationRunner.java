@@ -1,30 +1,24 @@
-package org.monke.streams.transactions;
+package org.monke.streams.generic;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.streams.KafkaStreams;
 import org.apache.kafka.streams.Topology;
-import org.monke.streams.transactions.config.ApplicationConfig;
-import org.monke.streams.transactions.topology.TopologyBuilder;
 
-import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * <p>Lifecycle class for the Kafka Streams application.</p>
+ * Generic lifecycle class for the Kafka Streams application.
  * <ul>
- *     <li>Creates instance from topology and config.</li>
- *     <li>Starts instance.</li>
- *     <li>Handles shutdown though latch.</li>
+ *     <li> Creates an instance from given topology and config.
+ *     <li> Starts instance.
+ *     <li> Handles shutdown though latch.
  * </ul>
  */
 @Slf4j
-public class StreamsProcessingGenericClass {
+public class ApplicationRunner {
 
-    public static void main(String[] args) {
-
-        Topology topology = TopologyBuilder.buildTopology();
-        Properties config = ApplicationConfig.getStreamsConfig();
+    public static void run(Topology topology, Properties config) {
 
         log.info("topology : {}", topology.describe().toString());
 

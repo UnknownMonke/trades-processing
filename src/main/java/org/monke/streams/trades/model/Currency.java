@@ -1,4 +1,4 @@
-package org.monke.streams.transactions.model;
+package org.monke.streams.trades.model;
 
 public enum Currency {
     EUR,

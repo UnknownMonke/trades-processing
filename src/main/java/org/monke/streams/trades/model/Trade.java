@@ -1,4 +1,4 @@
-package org.monke.streams.transactions.model;
+package org.monke.streams.trades.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

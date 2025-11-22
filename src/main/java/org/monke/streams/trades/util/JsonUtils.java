@@ -1,4 +1,4 @@
-package org.monke.streams.transactions.util;
+package org.monke.streams.trades.util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;

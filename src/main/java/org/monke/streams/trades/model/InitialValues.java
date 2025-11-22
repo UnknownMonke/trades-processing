@@ -1,7 +1,7 @@
-package org.monke.streams.transactions.model;
+package org.monke.streams.trades.model;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import org.monke.streams.transactions.util.JsonUtils;
+import org.monke.streams.trades.util.JsonUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
